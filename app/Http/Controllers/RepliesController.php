@@ -21,9 +21,7 @@ class RepliesController extends Controller
         $reply->user_id = Auth::id();
         $reply->topic_id = $request->topic_id;
         $reply->save();
-
-        return redirect()->route('topics.show', $reply->topic->id)->with('success', '评论创建成功！');
-
+        return redirect()->route('topics.show', $reply->topic_id)->with('success', '评论创建成功！');
     }
 
     public function destroy(Reply $reply)
